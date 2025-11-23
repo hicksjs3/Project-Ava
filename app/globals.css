@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+/* Garet font - using Montserrat as fallback */
+@font-face {
+  font-family: 'Garet';
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* DIN Next Condensed - using Oswald as fallback */
+@font-face {
+  font-family: 'DIN Next Condensed';
+  src: url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    @apply bg-navy-dark text-white-pure font-body;
+    font-family: 'Verdana', 'Open Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-header font-bold;
+    font-family: 'Garet', 'Montserrat', sans-serif;
+  }
+
+  /* Data/Metrics styling - Sensor Spec Sheet aesthetic */
+  .data-font {
+    @apply font-data;
+    font-family: 'DIN Next Condensed', 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar for dark theme */
+  .scrollbar-dark::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .scrollbar-dark::-webkit-scrollbar-track {
+    @apply bg-navy-dark;
+  }
+  
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    @apply bg-blue-deep rounded-full;
+  }
+  
+  .scrollbar-dark::-webkit-scrollbar-thumb:hover {
+    @apply bg-teal-primary;
+  }
+
+  /* Pulse animation for Ava Active status */
+  @keyframes pulse-teal {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(58, 172, 149, 0.7);
+    }
+    50% {
+      opacity: 0.8;
+      box-shadow: 0 0 0 8px rgba(58, 172, 149, 0);
+    }
+  }
+
+  .animate-pulse-teal {
+    animation: pulse-teal 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Audio slider styling */
+  .audio-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #3AAC95;
+    cursor: pointer;
+    border: 2px solid #0F0E28;
+  }
+
+  .audio-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #3AAC95;
+    cursor: pointer;
+    border: 2px solid #0F0E28;
+  }
+
+  .volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #3AAC95;
+    cursor: pointer;
+    border: 2px solid #0F0E28;
+  }
+
+  .volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #3AAC95;
+    cursor: pointer;
+    border: 2px solid #0F0E28;
+  }
+
+  /* Waveform animation */
+  @keyframes waveform {
+    0%, 100% {
+      transform: scaleY(0.5);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+}
+
